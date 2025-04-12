@@ -1,6 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(cors({
+  origin: 'http://localhost:4200', // Change to match your frontend domain
+  methods: 'GET,POST,PUT,DELETE', // Allowed methods
+  allowedHeaders: 'Content-Type,Authorization', // Allowed headers
+  credentials: true
+}));
 
 app.use(express.json());
 

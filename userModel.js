@@ -1,5 +1,5 @@
 // userModel.js
-const users = [];
+let users = [];
 
 module.exports = {
   createUser: (username, hashedPassword) => {
@@ -12,6 +12,9 @@ module.exports = {
   },
   findUserById: (id) => {
     return users.find(user => user.id === id);
+  },
+  findAllUsers: () => {
+    return users.map(user => ({ id: user.id, username: user.username })); // hide passwords
   }
 };
 
